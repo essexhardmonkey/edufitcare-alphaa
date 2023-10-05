@@ -13,6 +13,7 @@ declare module 'next-auth/jwt' {
     sex: Sex;
     fizic: Fizic;
     stilSportiv: string;
+    moderator: number;
   }
  
 }
@@ -20,6 +21,7 @@ declare module 'next-auth/jwt' {
 declare module 'next-auth' { 
   interface Session { 
     user: {
+        moderator: number;
         id: string;
         name: string;
         avatar: string;
@@ -41,5 +43,6 @@ declare module 'next-auth' {
     sex: Sex;
     fizic: Fizic;
     stilSportiv: string;
+    moderator: number;
   }
 }

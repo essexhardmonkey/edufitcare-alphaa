@@ -23,7 +23,9 @@ export default async function ProfileInfo() {
                     <div className="flex flex-col w-full">
                         <p className="text-md">{session.user.name}</p>
                         <p className="text-small text-default-500">Informatii</p>
-                        <p>Rol: {session.user.moderator === 1 ? 'Moderator' : 'User'}</p>
+                        <center><p>    Rol: {['Mitea Nicolae', 'Moderator1', 'Moderator2'].includes(session.user.name)
+      ? 'Moderator'
+      : 'User'}</p></center>
                     </div>
                     <EditeazaProfilulBtn session={session.user} />                    
                 </div>
