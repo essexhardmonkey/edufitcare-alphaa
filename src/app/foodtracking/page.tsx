@@ -17,7 +17,7 @@ export default function FoodLogger() {
   const handleAddFood = async () => {
     if (foodName && calories && carbohydrates && protein) {
       try {
-        const newEntry = await prisma.foodEntry.create({
+        const newEntry = await prisma.FoodEntry.create({
           data: {
             foodName,
             calories: parseInt(calories),
@@ -40,7 +40,7 @@ export default function FoodLogger() {
 
   const calculateTotalCalories = async () => {
     try {
-      const foodEntries = await prisma.foodEntry.findMany();
+      const foodEntries = await prisma.FoodEntry.findMany();
       const totalCalories = foodEntries.reduce(
         (total, entry) => total + entry.calories,
         0
