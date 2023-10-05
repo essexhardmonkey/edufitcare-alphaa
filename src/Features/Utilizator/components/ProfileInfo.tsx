@@ -8,6 +8,9 @@ import { getServerSession } from "next-auth";
 import EditeazaProfilulBtn from "./EditeazaProfilulBtn";
 import { Avatar } from "@nextui-org/avatar";
 import ChangeAvatarInput from "./ChangeAvatarInput";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+
 
 
 export default async function ProfileInfo() {
@@ -23,7 +26,7 @@ export default async function ProfileInfo() {
                     <div className="flex flex-col w-full">
                         <p className="text-md">{session.user.name}</p>
                         <p className="text-small text-default-500">Informatii</p>
-                        <center><p>    Rol: {['Mitea Nicolae', 'Moderator1', 'Moderator2'].includes(session.user.name)
+                         <center><p>{['Mitea Nicolae', 'Moderator1', 'Moderator2'].includes(session.user.name)
       ? 'Moderator'
       : 'User'}</p></center>
                     </div>
