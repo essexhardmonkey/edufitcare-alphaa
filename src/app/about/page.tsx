@@ -2,10 +2,14 @@ import React from 'react';
 
 function MyPage() {
   return (
+    <center>
+
     <div>
-      <h1>Hello, Next.js!</h1>
-      <p>This is a basic Next.js page.</p>
+    <h1>Acesta este food log-ul tau!</h1>
+    <img src="poza/bla.jpeg" alt="Nico" />
+
     </div>
+    </center>
   );
 }
 
