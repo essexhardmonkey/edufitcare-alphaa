@@ -1,61 +1,52 @@
 "use client"
-// pages/food-logger.js
-import { PrismaClient } from '@prisma/client';
-import { useRouter } from 'next/navigation';
+
+// pages/food-tracking.js
 import { useState } from 'react';
+import axios from 'axios';
 
-const prisma = new PrismaClient();
-
-export default function FoodLogger() {
-  const router = useRouter();
+const FoodTracking = () => {
   const [foodName, setFoodName] = useState('');
   const [calories, setCalories] = useState('');
   const [carbohydrates, setCarbohydrates] = useState('');
   const [protein, setProtein] = useState('');
   const [foodEntries, setFoodEntries] = useState([]);
-
+  const [totalCalories, setTotalCalories] = useState(0);
 
   const handleAddFood = async () => {
-    if (foodName && calories && carbohydrates && protein) {
-      try {
-        const newEntry = await prisma.foodEntry.create({
-          data: {
-            foodName,
-            calories: parseInt(calories),
-            carbohydrates: parseInt(carbohydrates),
-            protein: parseInt(protein),
-          },
-        });
+    try {
+      const response = await axios.post('/api/foodEntries', {
+        foodName,
+        calories,
+        carbohydrates,
+        protein,
+      });
 
-        setFoodName('');
-        setCalories('');
-        setCarbohydrates('');
-        setProtein('');
-      } catch (error) {
-        console.error('Error adding food entry:', error);
-      }
-    } else {
-      console.error('Please fill in all fields');
+      const newEntry = response.data;
+      setFoodEntries([...foodEntries, newEntry]);
+      setFoodName('');
+      setCalories('');
+      setCarbohydrates('');
+      setProtein('');
+    } catch (error) {
+      console.error('Error adding food entry:', error);
     }
   };
 
-  const calculateTotalCalories = async () => {
+  const fetchFoodEntries = async () => {
     try {
-      const foodEntries = await prisma.foodEntry.findMany();
-      const totalCalories = foodEntries.reduce(
-        (total, entry) => total + entry.calories,
-        0
-      );
-      return totalCalories;
+      const response = await axios.get('/api/foodEntries');
+      const { foodEntries, totalCalories } = response.data;
+
+      setFoodEntries(foodEntries);
+      setTotalCalories(totalCalories);
     } catch (error) {
-      console.error('Error calculating total calories:', error);
-      return 0;
+      console.error('Error fetching food entries:', error);
     }
   };
 
   return (
     <div>
-      <h1>Food Logger</h1>
+      <h1>Food Tracking</h1>
       <div>
         <input
           type="text"
@@ -95,8 +86,11 @@ export default function FoodLogger() {
       </div>
       <div>
         <h2>Total Calories Today</h2>
-        <p>{calculateTotalCalories()} calories</p>
+        <p>{totalCalories} calories</p>
       </div>
+      <button onClick={fetchFoodEntries}>Refresh</button>
     </div>
   );
-}
+};
+
+export default FoodTracking;
