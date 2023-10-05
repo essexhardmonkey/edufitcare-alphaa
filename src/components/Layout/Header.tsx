@@ -16,7 +16,7 @@ export default async function Header() {
                     Edu-FitCare+
                 </h1>
                 <span className='text-sm lg:text-base font-semibold text-white'>
-                    Your one stop solution for all your educational needs
+                    Edu-Fitcare+ iti ofera un plan alimentar personalizat bazat pe preferintele si nevoile tale!  
                 </span>
             </div>
         </header>
