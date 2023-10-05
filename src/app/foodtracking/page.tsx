@@ -4,8 +4,7 @@ import { PrismaClient } from '@prisma/client';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
-//
-
+const prisma = new PrismaClient();
 
 export default function FoodLogger() {
   const router = useRouter();
@@ -13,47 +12,46 @@ export default function FoodLogger() {
   const [calories, setCalories] = useState('');
   const [carbohydrates, setCarbohydrates] = useState('');
   const [protein, setProtein] = useState('');
+  const [foodEntries, setFoodEntries] = useState([]);
 
-const handleAddFood = () => {
-  if (foodName && calories && carbohydrates && protein) {
-    prisma.foodEntry.create({
-      data: {
-        foodName,
-        calories: parseInt(calories),
-        carbohydrates: parseInt(carbohydrates),
-        protein: parseInt(protein),
-      },
-    })
-      .then((newEntry) => {
+
+  const handleAddFood = async () => {
+    if (foodName && calories && carbohydrates && protein) {
+      try {
+        const newEntry = await prisma.foodEntry.create({
+          data: {
+            foodName,
+            calories: parseInt(calories),
+            carbohydrates: parseInt(carbohydrates),
+            protein: parseInt(protein),
+          },
+        });
+
         setFoodName('');
         setCalories('');
         setCarbohydrates('');
         setProtein('');
-      })
-      .catch((error) => {
+      } catch (error) {
         console.error('Error adding food entry:', error);
-      });
-  } else {
-    console.error('Please fill in all fields');
-  }
-};
+      }
+    } else {
+      console.error('Please fill in all fields');
+    }
+  };
 
-
-const calculateTotalCalories = () => {
-  return prisma.foodEntry.findMany()
-    .then((foodEntries) => {
+  const calculateTotalCalories = async () => {
+    try {
+      const foodEntries = await prisma.foodEntry.findMany();
       const totalCalories = foodEntries.reduce(
         (total, entry) => total + entry.calories,
         0
       );
       return totalCalories;
-    })
-    .catch((error) => {
+    } catch (error) {
       console.error('Error calculating total calories:', error);
       return 0;
-    });
-};
-
+    }
+  };
 
   return (
     <div>
