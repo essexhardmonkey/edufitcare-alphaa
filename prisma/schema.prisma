@@ -46,7 +46,7 @@ model ProblemeSanatate {
   problema String
 }
 
-model FoodEntry {
+model foodEntry {
 id           Int       @id @default(autoincrement())
 foodName String
 calories Int
