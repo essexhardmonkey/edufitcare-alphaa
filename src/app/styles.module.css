@@ -1,0 +1,14 @@
+/* styles.module.css */
+
+.team-member {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.team-member img {
+  width: 150px; /* Adjust the image size as needed */
+  height: 150px; /* Adjust the image size as needed */
+  border-radius: 50%; /* Make the image round */
+  object-fit: cover; /* Maintain aspect ratio */
+  margin-bottom: 10px;
+}
