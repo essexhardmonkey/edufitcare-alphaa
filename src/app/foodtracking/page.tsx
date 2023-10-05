@@ -1,4 +1,4 @@
-// components/FoodForm.js
+/* @jsxImportSource @emotion/react */
 
 import { useEffect, useState } from 'react';
 import mysql from 'mysql2';
