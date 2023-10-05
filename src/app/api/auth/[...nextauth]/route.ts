@@ -50,7 +50,6 @@ export const authOptions: NextAuthOptions = {
                 stilSportiv: user.stilSportiv,
                 sex: user.sex,
                 varsta: user.varsta,
-                moderator: user.moderator
                } as any;
           }
 
@@ -74,7 +73,6 @@ export const authOptions: NextAuthOptions = {
         session.user.sex = token.sex;
         session.user.stilSportiv = token.stilSportiv;
         session.user.varsta = token.varsta;
-        session.user.moderator = token.moderator;
       }
       return session
     },
@@ -102,7 +100,6 @@ export const authOptions: NextAuthOptions = {
             sex: dbUser.sex,
             stilSportiv: dbUser.stilSportiv,
             varsta: dbUser.varsta,
-            moderator: dbUser.moderator,
 
         } as any
     },
