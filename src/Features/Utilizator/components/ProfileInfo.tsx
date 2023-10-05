@@ -22,6 +22,7 @@ export default async function ProfileInfo() {
                 <div className='flex items-center justify-between w-full'>
                     <div className="flex flex-col w-full">
                         <p className="text-md">{session.user.name}</p>
+                         <p className="text-md">Acest utilizator este moderator doar text.</p>
                         <p className="text-small text-default-500">Informatii</p>
                     </div>
                     <EditeazaProfilulBtn session={session.user} />                    

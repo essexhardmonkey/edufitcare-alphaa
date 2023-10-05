@@ -15,10 +15,6 @@ export default function Home() {
       </h2>
     </div>
 
-    <div className='flex flex-col gap-3 items-center justify-center w-full'>
-      <h2 className='text-black font-medium text-xl'>
-Edu-Fitcare+ iti ofera un plan alimentar personalizat bazat pe preferintele si nevoile tale!      </h2>
-    </div>
     </center>
 
 
