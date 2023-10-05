@@ -54,6 +54,7 @@ const About = () => {
       <h1>Edu-Fitcare+</h1>
       <p>Moderators</p>
       <h2>Here you have the full list of Edu-Fitcare+ Moderators!</h2>
+      <center>
       <div className="team-members">
         {teamMembers.map((member, index) => (
           <TeamMember
@@ -64,6 +65,7 @@ const About = () => {
           />
         ))}
       </div>
+      </center>
     </div>
     </center>
   );
