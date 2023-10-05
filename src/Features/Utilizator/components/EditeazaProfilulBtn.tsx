@@ -8,8 +8,6 @@ import {
   ModalBody,
   ModalContent,
   ModalHeader,
-  Select,
-  SelectItem,
   Tooltip,
   useDisclosure,
 } from "@nextui-org/react";
@@ -39,15 +37,20 @@ export default function EditeazaProfilulBtn({ session }: { session: User }) {
   const router = useRouter();
 
   const [userInfo, setUserInfo] = useState({
-    kg: session.kg,
-    sex: session.sex,
+    varsta: Number(session.varsta),
     stilSportiv: session.stilSportiv,
-    varsta: session.varsta,
     locatie: session.locatie,
+    kg: Number(session.kg),
+    // sex: session.sex,
   });
 
-  const updateUserInfo = (key: string, value: string) =>
-    setUserInfo({ ...userInfo, [key]: value });
+  const updateUserInfo = (key: string, value: string) => {
+    if (key === "varsta" || key === "kg") {
+      setUserInfo({ ...userInfo, [key]: Number(value) });
+    } else {
+      setUserInfo({ ...userInfo, [key]: value });
+    }
+  };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -55,13 +58,12 @@ export default function EditeazaProfilulBtn({ session }: { session: User }) {
     const request = async () => {
       profileSchema.parse({
         ...userInfo,
-        kg: parseInt(userInfo.kg),
-        varsta: parseInt(userInfo.varsta),
       });
       await editeazaProfilul(
-        userInfo.sex,
+        // userInfo.sex,
         userInfo.varsta,
         userInfo.stilSportiv,
+        userInfo.locatie,
         userInfo.kg
       );
     };
@@ -112,7 +114,7 @@ export default function EditeazaProfilulBtn({ session }: { session: User }) {
           <ModalBody>
             <form onSubmit={handleSubmit} className="flex flex-col gap-3">
               <Input
-                value={userInfo.varsta}
+                value={userInfo.varsta.toString()}
                 onChange={(e) => updateUserInfo("varsta", e.target.value)}
                 type="number"
                 label="Varsta"
@@ -120,7 +122,7 @@ export default function EditeazaProfilulBtn({ session }: { session: User }) {
                 className="text-black"
               />
               <Input
-                value={userInfo.kg}
+                value={userInfo.kg.toString()}
                 onChange={(e) => updateUserInfo("kg", e.target.value)}
                 type="number"
                 label="KG"

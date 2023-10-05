@@ -12,8 +12,8 @@ model user {
   email            String             @unique(map: "User_email_key")
   name             String?
   password         String
-  varsta           String             @default("0")
-  kg               String             @default("0")
+  varsta           Int                @default(0)
+  kg               Int                @default(0)
   inaltime         String             @default("0")
   sex              user_sex           @default(NA)
   fizic            user_fizic         @default(Nespecificat)
