@@ -43,7 +43,7 @@ export default async function Profil() {
           <Divider />
         </CardHeader>
         <CardBody>
-          <div className="flex flex-col gap-3">Curand...</div>
+          <div className="flex flex-col gap-3">Iti recomand sa mergi cel putin 10.000 pasi pe zi.</div>
         </CardBody>
       </Card>
     </div>
