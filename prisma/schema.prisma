@@ -37,3 +37,13 @@ enum user_fizic {
   Obez
   Nespecificat
 }
+
+
+model Food {
+  id            Int       @id @default(autoincrement())
+  name          String
+  calories      Float
+  carbohydrates Float
+  protein       Float
+  fats          Float
+}

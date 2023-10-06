@@ -7,9 +7,5 @@ export const metadata: Metadata = {
 };
 
 export default async function Page() {
-  return (
-    <div className="container mx-auto">
-      <HealthForm />
-    </div>
-  );
+  return <div className="container mx-auto">{/* <HealthForm /> */}</div>;
 }
