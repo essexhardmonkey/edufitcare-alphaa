@@ -38,7 +38,7 @@ enum user_fizic {
   Nespecificat
 }
 
-model Food {
+model food {
   id            Int       @id @default(autoincrement())
   name          String
   calories      Float
