@@ -31,6 +31,31 @@ export default async function Profil() {
             <p>Varsta: {varsta}</p>
           </div>
         </CardBody>
+
+        <CardBody>
+        Ziua 1: Antrenament cu Greutăți
+
+<p></p>Squat cu Bara:
+
+4 seturi x 8-10 repetări
+Presă de Picior (Leg Press):
+
+3 seturi x 10-12 repetări
+Extensii la Aparat (Leg Extensions):
+
+3 seturi x 12-15 repetări
+Flexii la Aparat (Leg Curls):
+
+3 seturi x 10-12 repetări
+Ridicări de Gambață (Calf Raises):
+
+4 seturi x 12-15 repetări
+
+
+
+
+        </CardBody>
+        
       </Card>
 
       <Card>
