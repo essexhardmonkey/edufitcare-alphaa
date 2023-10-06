@@ -38,7 +38,6 @@ enum user_fizic {
   Nespecificat
 }
 
-
 model Food {
   id            Int       @id @default(autoincrement())
   name          String
