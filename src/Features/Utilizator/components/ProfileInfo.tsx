@@ -20,6 +20,11 @@ export default async function ProfileInfo() {
           <div className="flex flex-col w-full">
             <p className="text-md">{session.user.name}</p>
             <p className="text-small text-default-500">Informatii</p>
+            {session.user.name === 'Mitea Nicolae' ? (
+        <p>Welcome, Moderator!</p>
+      ) : (
+        <p>Welcome, User!</p>
+      )}
           </div>
           <div className="flex gap-2 items-center">
             <EditeazaProfilulBtn session={session.user} />
