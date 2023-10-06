@@ -26,6 +26,7 @@ export default function Home() {
 
   const addFood = async () => {
     try {
+      console.log(JSON.stringify(foodData));
       const response = await fetch('/api/addfood', {
         method: 'POST',
         headers: {
