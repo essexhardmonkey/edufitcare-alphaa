@@ -45,6 +45,11 @@ export default async function Profil() {
         <CardBody>
           <div className="flex flex-col gap-3">Iti recomand sa mergi cel putin 10.000 pasi pe zi.</div>
         </CardBody>
+
+        <CardBody>
+          <div className="flex flex-col gap-3">Iti recomand sa bei minim 2l de apa pe zi.</div>
+        </CardBody>
+  
       </Card>
     </div>
   );
