@@ -26,9 +26,10 @@ export default async function Profil() {
         </CardHeader>
         <CardBody>
           <div className="flex flex-col gap-3">
-            <p>Greutate: {kg}</p>
-            <p>Inaltime: {inaltime}</p>
-            <p>Varsta: {varsta}</p>
+            <p>Greutate: {kg} kg</p>
+            <p>Inaltime: {inaltime} inaltime</p>
+            <p>Varsta: {varsta} ani</p>
+            <p>DP: ok!</p>
           </div>
         </CardBody>
 
